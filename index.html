@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+    <div id="container">
+        <div class="header">
+            <h2>PSEU Team Members</h2>
+        </div>
+
+        <div class="left">
+
+            <form>
+                <h2>Add new member</h2>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                 
+                <input list="Majors" name="Major" placeholder="Major">
+                 <datalist id="Majors">
+                     <option value="CS">
+                     
+                 </datalist>
+
+                <input list="Roles" name="Role" placeholder="Role">
+                 <datalist id="Roles">
+                    <option value="Leader">
+                   
+                 </datalist>
+
+                <textarea placeholder="Biography"></textarea>
+                <input type="checkbox" name="AddToBottom" value="true"> Add to bottom / or at index 
+                <input type="text" placeholder="">
+                <input type="submit" value="Save" id="btn">
+                <!-- <select name="Country" >
+                <option value="USA">USA</option>
+                <option value="Russia">Russia</option>
+                <option value="India">India</option>
+                <option value="Britain">Britain</option>
+                </select> -->
+
+            </form>
+        </div>
+
+        <div class ="right">
+
+        </div>
+
+    </div>
+</body>
+</html>
