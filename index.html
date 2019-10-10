@@ -14,36 +14,41 @@
         </div>
 
         <div class="left">
+            <div class="form_container">
+                <form>
+                    <h2>Add new member</h2>
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    
+                    <input list="Majors" name="Major" placeholder="Major">
+                    <datalist id="Majors">
+                        <option value="CS">
+                        
+                    </datalist>
 
-            <form>
-                <h2>Add new member</h2>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                 
-                <input list="Majors" name="Major" placeholder="Major">
-                 <datalist id="Majors">
-                     <option value="CS">
-                     
-                 </datalist>
+                    <input list="Roles" name="Role" placeholder="Role">
+                    <datalist id="Roles">
+                        <option value="Leader">
+                    
+                    </datalist>
 
-                <input list="Roles" name="Role" placeholder="Role">
-                 <datalist id="Roles">
-                    <option value="Leader">
-                   
-                 </datalist>
+                    <textarea placeholder="Biography" rows="50"></textarea>
+                    <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Add to bottom / or at index
+                    </label> 
+                    <input type="text" placeholder="" id="index">
+                    <input type="submit" value="Save" id="btn">
+                    <!-- <select name="Country" >
+                    <option value="USA">USA</option>
+                    <option value="Russia">Russia</option>
+                    <option value="India">India</option>
+                    <option value="Britain">Britain</option>
+                    </select> -->
 
-                <textarea placeholder="Biography"></textarea>
-                <input type="checkbox" name="AddToBottom" value="true"> Add to bottom / or at index 
-                <input type="text" placeholder="">
-                <input type="submit" value="Save" id="btn">
-                <!-- <select name="Country" >
-                <option value="USA">USA</option>
-                <option value="Russia">Russia</option>
-                <option value="India">India</option>
-                <option value="Britain">Britain</option>
-                </select> -->
-
-            </form>
+                </form>
+            </div>
         </div>
 
         <div class ="right">

@@ -1,7 +1,60 @@
-input{
-    width:100%;
+*{
+    box-sizing: border-box;
 }
+body{
+    margin: 0;
 
+}
+input[type=text],[type=email],[list],textarea{
+    width: 95%;
+    margin-left:2.5%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    height: 40px;
+
+}
+input[type=checkbox]{
+    background-color: white;
+   // margin-bottom: 70%;
+   border-radius: 0%;
+   border:1px solid blue;
+   }
+#index{
+    width: 12%;
+    margin-left: 1.5%;
+    border-radius: 0px;
+    height: auto;
+}
 .left{
     width: 40%;
+    
+}
+.right{
+    width:60%;
+}
+form{
+    padding-bottom: 0px;
+}
+.form_container{
+    border: solid 1px;
+    height:100%;
+    margin-top: 15%;
+    float: right;
+    border-radius: 10%;
+    width:70%;
+    padding: 3%;
+    padding-bottom: 0px;
+    
+    
+}
+.header{
+    top: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    background-color: blue;
+}
+#btn{
+    margin-bottom: 0px;
+    width: 100%;
 }
