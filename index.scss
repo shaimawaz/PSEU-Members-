@@ -1,21 +1,31 @@
 *{
     box-sizing: border-box;
 }
-body{
+body,html{
     margin: 0;
-
+    height: 100%;
 }
-input[type=text],[type=email],[list],textarea{
-    width: 95%;
-    margin-left:2.5%;
+
+input[type=text],[type=email],[list]{
+    width: 90%;
+    margin-left:5%;
+    margin-bottom: 1.5%;
+    border-radius: 10px;
+    border: 1px solid #c5c5c5;
+    height: 43px;
+    padding: 2%;
+}
+textarea{
+    width: 90%;
+    margin-left:5%;
+    border: 1px solid #c5c5c5;
     margin-bottom: 1%;
     border-radius: 10px;
-    height: 40px;
-
+    padding:2%;
 }
 input[type=checkbox]{
-    background-color: white;
-   // margin-bottom: 70%;
+   background-color: white;
+   margin-bottom: 14%;
    border-radius: 0%;
    border:1px solid blue;
    }
@@ -24,13 +34,21 @@ input[type=checkbox]{
     margin-left: 1.5%;
     border-radius: 0px;
     height: auto;
+    padding: 0;
 }
 .left{
     width: 40%;
+    position: fixed;
+    padding-right: 4%;
     
 }
 .right{
-    width:60%;
+    width:58.5%;
+    height: 100vh;
+    background-color: #ccc;
+    margin: 0;
+    margin-right: 4%;
+    float: right;
 }
 form{
     padding-bottom: 0px;
@@ -40,10 +58,11 @@ form{
     height:100%;
     margin-top: 15%;
     float: right;
-    border-radius: 10%;
-    width:70%;
-    padding: 3%;
-    padding-bottom: 0px;
+    border-radius: 25px;
+    width:65%;
+    padding: 0px;
+    padding-top: 3%;
+    
     
     
 }
@@ -52,9 +71,50 @@ form{
     position: fixed;
     text-align: center;
     width: 100%;
+    height: 7%;
     background-color: blue;
+    padding-bottom: 4%;
 }
 #btn{
     margin-bottom: 0px;
     width: 100%;
+    background-color:blue; 
+    border:1px solid  blue;
+    color: white;
+    padding: 4% 5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 105%;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+#AddHeader{
+    text-align: center;
+    font-size: 140%;
+    margin-top: 1.7%;
+}
+.checkbox{
+    margin-left:5%;
+}
+.top_right{
+    background-color: blue;
+    width: 10%;
+    height: 5.7%;
+    float: right;
+    margin-top: 10%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+
+}
+.top_left{
+    width: 65%;
+    height: 5.7%;
+    float: left;
+    background-color: blue;
+    margin-top: 10%;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+
 }
