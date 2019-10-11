@@ -40,6 +40,7 @@
                     </label> 
                     <input type="text" placeholder="" id="index">
                     <input type="submit" value="SAVE" id="btn">
+
                     <!-- <select name="Country" >
                     <option value="USA">USA</option>
                     <option value="Russia">Russia</option>
@@ -52,12 +53,42 @@
         </div>
 
         <div class ="right">
-        <div class="top_right">
-            <h3></h3>
-        </div>
-        <div class="top_left">
-            <h3>SORT BY</h3>
-            
+
+            <div class="top_right">
+                <span> items</span>
+            </div>
+
+            <div class="top_left">
+                <span>SORT BY</span>
+
+                <input list="Sort" name="Sort" placeholder="A-Z" id="sort">
+                    <datalist id="Sort">
+                        <option value="A-Z">
+                        <option value="Z-A">
+                        
+                    </datalist>
+
+                <span class="split">|</span>
+
+                <input list="Roles" name="Role" placeholder="Role">
+                    <datalist id="Roles">
+                        <option value="Leader">
+                        
+                    </datalist>
+
+                <input list="Majors" name="Major" placeholder="Major">
+                    <datalist id="Majors">
+                        <option value="CS">
+                        
+                    </datalist>
+
+                <span class="split">|</span>
+                
+                <input type="text" placeholder="Search by name ..">
+            </div>
+
+            <div id="result">
+
             </div>
 
         </div>
