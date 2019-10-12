@@ -21,7 +21,7 @@ body, html {
 .left {
   width: 38%;
   position: fixed;
-  padding-right: 4%;
+  padding-right: 2%;
 }
 
 .left input[type=text], .left [type=email], .left [list] {
@@ -65,7 +65,7 @@ body, html {
 .left .form_container {
   border: solid 1px;
   height: 100%;
-  margin-top: 19%;
+  margin-top: 17%;
   float: right;
   border-radius: 25px;
   width: 68%;
