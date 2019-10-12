@@ -17,29 +17,29 @@
             <div class="form_container">
                 <form>
                     <h2 id="AddHeader">Add new member</h2>
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Name" id="name">
+                    <input type="email" placeholder="Email" id="email">
                     
-                    <input list="Majors" name="Major" placeholder="Major">
-                    <datalist id="Majors">
+                    <input list="Majors" name="Major" placeholder="Major" id="major">
+                    <datalist id="Major">
                         <option value="CS">
                         
                     </datalist>
 
-                    <input list="Roles" name="Role" placeholder="Role">
-                    <datalist id="Roles">
+                    <input list="Roles" name="Role" placeholder="Role" id="role">
+                    <datalist id="Role">
                         <option value="Leader">
                     
                     </datalist>
 
-                    <textarea placeholder="Biography" rows="11"></textarea>
+                    <textarea placeholder="Biography" rows="10" id="biography"></textarea>
                     <label class="checkbox">
                             <input type="checkbox" checked="checked"/>
                             <span class="checkmark"></span>
                             Add to bottom / or at index
                     </label> 
                     <input type="text" placeholder="" id="index">
-                    <input type="submit" value="SAVE" id="btn">
+                    <button onclick="store()" type="button" id="btn">SAVE</button>
 
                     <!-- <select name="Country" >
                     <option value="USA">USA</option>
@@ -84,7 +84,7 @@
 
                 <span class="split">|</span>
                 
-                <input type="text" placeholder="Search by name ..">
+                <input type="text" placeholder="Search by name .." class="live_search">
             </div>
 
             <div id="result">
@@ -92,8 +92,8 @@
                     <div class="minusIcon">-</div>
                     <div class="personInfo">
                         <h2>name name</h2>
-                        <p>pppppppp</p>
-                        <p>ertfyguhijopegyfdghjkl;/.,mnjhbgvfcdxes[;plokijuhygtfrdes;l,kmjuhygtfrde</p>
+                        <p id="mail_major_role">pppppppp</p>
+                        <p id="biography">ertfyguhijopegyfdghjkl;/.,mnjhbgvfcdxes[;plokijuhygtfrdes;l,kmjuhygtfrde</p>
 
                     </div>
                 
@@ -108,3 +108,15 @@
     </div>
 </body>
 </html>
+
+
+<!-- <script type="text/javascript">
+	$(".live_search").on("change",function(){
+		var x = $(".live_search").val();
+	  
+	    $("#result").html(result);
+	
+	  }});
+	});
+</script> -->
+<script type="text/javascript" src="functions.js"></script>
