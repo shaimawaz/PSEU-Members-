@@ -103,7 +103,7 @@ body, html {
   font-size: 140%;
   margin-top: 1.7%;
   font-family: "Segoe UI";
-  color: #cccc;
+  color: #707070;
 }
 
 .left .checkbox {
@@ -134,7 +134,7 @@ body, html {
 
 .right .top_left {
   width: 70%;
-  height: 5.2%;
+  height: 4%;
   float: left;
   background-color: #2D89E6;
   margin-top: 11.2%;
@@ -152,7 +152,7 @@ body, html {
   margin-right: 0.5%;
   border: 1px solid #c3c3c3;
   padding: 0.4%;
-  height: 61%;
+  height: 59%;
   margin-top: 1%;
   top: 50%;
   font-size: 70%;
@@ -162,10 +162,13 @@ body, html {
 
 .right span {
   font-size: 87%;
-  font-family: "Segoe UI";
   color: white;
+}
+
+.right #sortby {
   font-weight: 700;
   word-spacing: 0.009%;
+  font-family: "Segoe UI";
 }
 
 .right #sort {
@@ -209,6 +212,7 @@ body, html {
           justify-content: center;
   text-align: center;
   padding-top: -1px;
+  cursor: pointer;
 }
 
 .right #result {
@@ -257,9 +261,15 @@ body, html {
   font-size: 150%;
 }
 
-.right .personInfo #mail_major_role {
+.right .personInfo .mail_major_role {
   color: #2D89E6;
   font-size: 97%;
   font-weight: 700;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.right .personInfo #numofallmemebers {
+  font-family: "Segoe UI";
 }
 /*# sourceMappingURL=index.css.map */

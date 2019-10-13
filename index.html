@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
-<body>
+<body onload="allmembers()">
     <div id="container">
         <div class="header">
             <h2>PSEU Team Members</h2>
@@ -51,15 +51,15 @@
                 </form>
             </div>
         </div>
-
+<!-- ************************************************************************************************* -->
         <div class ="right">
 
             <div class="top_right">
-                <span> items</span>
+               <b></b> <span id="numofallmembers"> items</span></b>
             </div>
 
             <div class="top_left">
-                <span>SORT BY</span>
+                <span id="sortby">SORT BY</span>
 
                 <input list="Sort" name="Sort" placeholder="A-Z" id="sort">
                     <datalist id="Sort">
@@ -87,17 +87,8 @@
                 <input type="text" placeholder="Search by name .." class="live_search">
             </div>
 
-            <div id="result">
-                <div class="person">
-                    <div class="minusIcon">-</div>
-                    <div class="personInfo">
-                        <h2>name name</h2>
-                        <p id="mail_major_role">pppppppp</p>
-                        <p id="biography">ertfyguhijopegyfdghjkl;/.,mnjhbgvfcdxes[;plokijuhygtfrdes;l,kmjuhygtfrde</p>
-
-                    </div>
+            <div id="result" onload="allmembers()">
                 
-                </div>
             </div>
 
         </div>

@@ -1,3 +1,26 @@
+
+  function allmembers(){
+    var users = [];
+    users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    var i;
+    var text="";
+
+    for (i = 0; i < users.length; i++) {
+    text += "<div class='person'>"+
+                "<div class='minusIcon' onclick='deletemember("+users[i].id+")'>-</div>"+
+                "<div class='personInfo'>"+
+                    "<h2>"+users[i].name+"</h2>"+
+                    "<p class='mail_major_role'>"+users[i].email+"/"+users[i].major+"/"+users[i].role+"</p>"+
+                    "<p class='biography'>"+users[i].biography.substring(0,102)+"</p>"+
+                "</div>"+
+            "</div>";  
+    }
+
+    console.log(text);
+    document.getElementById("result").innerHTML = text;
+    document.getElementById("numofallmembers").innerHTML = users.length+" items";
+  }
 function store(){
    
    let name = document.getElementById("name").value;
@@ -42,8 +65,28 @@ function store(){
 
     localStorage.setItem("users", JSON.stringify(users));
 
+    document.getElementById("name").value="";
+    document.getElementById("email").value="";
+    document.getElementById("role").value="";
+    document.getElementById("major").value="";
+    document.getElementById("biography").value="";
+    document.getElementById("index").value="";
+
+    allmembers();
     console.log(JSON.stringify(users));
     console.log(index);
   }
 
-  
+function deletemember(id){
+    var users = [];
+    users = JSON.parse(localStorage.getItem("users") || "[]");
+    for (var i = 0; i < users.length; i++) {
+        var objToDElete = users[i];
+    
+        if (id==objToDElete.id) {
+            users.splice(i, 1);
+        }
+    }
+    localStorage.setItem("users", JSON.stringify(users));
+    allmembers();
+}
