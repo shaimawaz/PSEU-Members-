@@ -71,16 +71,16 @@
                     </datalist>
                 <!-- split the sides in a lame way -->
                 <span class="split">|</span>
-
-                <input list="FilterRoles" name="FilterRole" placeholder="Role">
+                <!-- roles list -->
+                <input list="FilterRoles"  placeholder="Role" id="filterroles" onchange="filterbyrole()">
                     <datalist id="FilterRoles">
                         <option value="Front-End Developer">
                         <option value="Back-End Developer">
                         <option value="Full-Stack Developer">
                         <option value="UI/UX Designer">
                     </datalist>
-
-                <input list="FilterMajors" name="FilterMajor" placeholder="Major" onchange="">
+                <!-- major list -->
+                <input list="FilterMajors" name="FilterMajors" id="filtermajors" placeholder="Major" onchange="filterbymajor()">
                     <datalist id="FilterMajors">
                         <option value="Computer Science">
                         <option value="Computer Engineering">

@@ -198,4 +198,55 @@ function compareNewest( a, b ) {
     else if(sorttype == null)
         allmembers();
  }
-  
+ //function that is excuted when there is a major selected for filtering the members by
+function filterbymajor(){
+    //get the value to filter by
+    major=document.getElementById("filtermajors").value;
+
+    //we bring the array of all members
+    var users = [];
+    users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    //check if major is not nul if it is we print all members
+    if(major != null){
+        //bring the users with the major selected
+        users =  users.filter( function(user){
+            console.log(user.major);
+            console.log(major);
+        return  user.major == major;
+        });
+        //check if there is a member that matches the filter if not then print that there is no member found
+        if(users.length>0){
+            console.log(users);
+            PrintMemebers(users);
+        }else
+            document.getElementById("result").innerHTML = "<h2 style='color= #ff4a4a;'>No Member Found in this major</h2>";
+    }else
+    allmembers();
+}
+
+//function that is excuted when there is a role selected for filtering the members by
+function filterbyrole(){
+    //get the value to filter by
+    role=document.getElementById("filterroles").value;
+
+    //we bring the array of all members
+    var users = [];
+    users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    //check if role is not null if it is we print all members
+    if(role.length > 0 || role != null){
+        //bring the users with the role selected
+        users =  users.filter( function(user){
+        return  user.role == role;
+        });
+        //check if there is a member that matches the filter if not then print that there is no member found
+        if(users.length>0){
+            PrintMemebers(users);
+        }else{
+            document.getElementById("result").innerHTML = "<h2 style='color= #ff4a4a;'>No Member Found with this role</h2>";
+        }
+    }else
+    allmembers();
+    
+}
