@@ -267,7 +267,6 @@ function showpop(id){
     container.style.visibility = "visible";
     container.style.display = "block";
 
-    console.log(member);
     document.getElementById("membernamepop").innerHTML=member.name;
     document.getElementById("emailpop").innerHTML= member.email;
     document.getElementById("majorpop").value=member.major;
@@ -280,6 +279,7 @@ function showpop(id){
 function cancel(){
     var container = document.getElementById("popcontainer");
     container.style.visibility = "hidden";
+    allmembers();
 }
 //function to delete a member from the popup
 function deletepop(){
@@ -296,23 +296,31 @@ function save(){
     //bring the member id to save his/her info
     memberid=document.getElementById("deletebtn").name;
     //bring the values from the popup
-    let name = document.getElementById("membernamepop").value;
-    let email = document.getElementById("emailpop").value;
+    let name = document.getElementById("membernamepop").innerHTML;
+    let email = document.getElementById("emailpop").innerHTML;
     let role = document.getElementById("rolepop").value;
     let major = document.getElementById("majorpop").value;
-    let bio = document.getElementById("popbio").value;
+    let bio = document.getElementById("popbio").innerHTML;
+
+    //we bring the array of all members
+    var users = [];
+    users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    //find the index of the member
+    objIndex = users.findIndex((obj => obj.id == memberid));
 
     //revalidate the data
-    if(name==null || name==false){
+    if(name==null || name==false ){
         alert('You have to enter a name');
         return ;
     }
+    //previous email value
+    prevemail = users[objIndex].email;
     if(email==null || email==false){
         alert('You have to enter a email');
         return ;
-    }else
-    {
-        //check if the email is unique
+    }else if(email != prevemail)
+    { //check if the email is unique
         for (i = 0; i < users.length; i++) {
             if(users[i].email === email){
                 alert('Email already exist !! try another');
@@ -331,5 +339,16 @@ function save(){
         return ;
     }
 
+    //save member information 
+    users[objIndex].name=name;
+    users[objIndex].email=email;
+    users[objIndex].major=major;
+    users[objIndex].role=role;
+    users[objIndex].biography=bio;
 
+    //restoring the array
+    localStorage.setItem("users", JSON.stringify(users));
+    
+    //hide the popup
+    cancel();
 }
