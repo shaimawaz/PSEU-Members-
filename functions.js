@@ -16,14 +16,15 @@
                 "<div class='personInfo'>"+
                     "<h2>"+users[i].name+"</h2>"+
                     "<p class='mail_major_role'>"+users[i].email+"/"+users[i].major+"/"+users[i].role+"</p>"+
-                    "<p class='biography'>"+users[i].biography.substring(0,102)+"</p>"+
+                    "<p class='biography'>"+users[i].biography.substring(0,100)+"-<br>"+users[i].biography.substring(100,200)+
+                    "-...</p>"+
                 "</div>"+
             "</div>";  
     }
 //printing the text variable into the ineer html of the result div so the appear in the propper way
     document.getElementById("result").innerHTML = text;
 //printing the number of members or items in its place
-    document.getElementById("numofallmembers").innerHTML = users.length+" items";
+    document.getElementById("numofallmembers").innerHTML = users.length+" ITEMS";
   }
 
 //function that stored the information of a member into local storage after validating and verifying its info
@@ -71,13 +72,16 @@ function store(){
         alert('You have to enter a biography');
         return ;
     }
-    //ive every member an id
+
+    //give every member an id
     let id = Math.floor(Math.random() * 1000000);
-    //check if the index field is filled and add to the specified index or at bottom in the array
-    if(index>0)
-         users.splice(index, 0, {id: id, name: name ,email:email, major:major, role:role, biography:bio});
-    else
-        users.push({id: id, name: name ,email:email, major:major, role:role, biography:bio});
+
+    //give every member a date of when he/she was added
+    dateadded=Date.now();
+
+    //add at the index specified or at 0 if the index is not specified
+    users.splice(index, 0, {id: id, name: name ,email:email, major:major, role:role, biography:bio, dateadded:dateadded});
+    
     //restore the array in the local storage
     localStorage.setItem("users", JSON.stringify(users));
     //refresh the fields and empty them
@@ -87,10 +91,13 @@ function store(){
     document.getElementById("major").value="";
     document.getElementById("biography").value="";
     document.getElementById("index").value="";
-    //bring all members to the result
+    document.getElementById("FilterRoles").value="";
+
+
+    //bring all members to the result div
     allmembers();
-    // console.log(JSON.stringify(users));
-    // console.log(index);
+    console.log(JSON.stringify(users));
+    console.log(index);
 }
 //function that delete a member it takes the id of the member
 function deletemember(id){
@@ -136,7 +143,7 @@ function search(){
     //if name is a null value then we print all members
     allmembers();
 }
-//function that compares the values to return to sort function when sorting A to Z
+//function that compares the values of names to return to sort function when sorting A to Z
 function compareAZ( a, b ) {
     if ( a.name < b.name ){
       return -1;
@@ -146,7 +153,7 @@ function compareAZ( a, b ) {
     }
     return 0;
 }
-//function that compares the values to return to sort function when sorting Z to A
+//function that compares the values of names to return to sort function when sorting Z to A
 function compareZA( a, b ) {
     if ( a.name > b.name ){
       return -1;
@@ -156,24 +163,39 @@ function compareZA( a, b ) {
     }
     return 0;
 }
+//function that compares the values of names to return to sort function when sorting newest
+function compareOldest( a, b ) {
+    return a.dateadded - b.dateadded;
+}
+//function that compares the values of dates to return to sort function when sorting oldest
+function compareNewest( a, b ) {
+    return b.dateadded - a.dateadded;
+}
+//function sort that sorts the useres as choosen
  function sort(){
      //first we bring the array of all members
      var users = [];
      users = JSON.parse(localStorage.getItem("users") || "[]");
-
+    //get the value to sort by
      sorttype=document.getElementById("sort").value;
-
-     if(sorttype == "A-Z"){
+    // check the value of sort 
+     if(sorttype == "A-Z"){ //sort from A to Z
         users.sort(compareAZ);
         PrintMemebers(users);
-     }else if(sorttype == "Z-A"){
+     }
+     else if(sorttype == "Z-A"){ //sort from Z to A
         users.sort(compareZA);
         PrintMemebers(users);
-     }else if(sorttype == "Newest"){
-
-    }else if(sorttype == "Oldest"){
-
+     }
+     else if(sorttype == "Newest"){ //sort from newest to oldest
+        users.sort(compareNewest);
+        PrintMemebers(users);
     }
- console.log(users)
+    else if(sorttype == "Oldest"){ // sort from oldest to newest
+        users.sort(compareOldest);
+        PrintMemebers(users);
+    } 
+    else if(sorttype == null)
+        allmembers();
  }
   
