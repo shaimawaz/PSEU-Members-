@@ -2,7 +2,10 @@
   function allmembers(){
     var users = [];
     users = JSON.parse(localStorage.getItem("users") || "[]");
+    PrintMemebers(users);
+  }
 
+  function PrintMemebers(users){
     var i;
     var text="";
 
@@ -16,11 +19,10 @@
                 "</div>"+
             "</div>";  
     }
-
-    console.log(text);
     document.getElementById("result").innerHTML = text;
     document.getElementById("numofallmembers").innerHTML = users.length+" items";
   }
+
 function store(){
    
    let name = document.getElementById("name").value;
@@ -29,6 +31,9 @@ function store(){
    let major = document.getElementById("major").value;
    let bio = document.getElementById("biography").value;
    let index = document.getElementById("index").value;
+
+   var users = [];
+   users = JSON.parse(localStorage.getItem("users") || "[]");
 
     if(index==null || index<0){
         index=0;
@@ -40,6 +45,14 @@ function store(){
     if(email==null || email==false){
         alert('You have to enter a email');
         return ;
+    }else
+    {
+        for (i = 0; i < users.length; i++) {
+            if(users[i].email === email){
+                alert('Email already exist !! try another');
+                return ;
+            }
+        }
     }
     if(major==null || major==false){
         alert('You have to enter a major');
@@ -55,9 +68,6 @@ function store(){
     }
 
     let id = Math.floor(Math.random() * 1000000);
-
-    var users = [];
-    users = JSON.parse(localStorage.getItem("users") || "[]");
     if(index>0)
          users.splice(index, 0, {id: id, name: name ,email:email, major:major, role:role, biography:bio});
     else
@@ -88,5 +98,23 @@ function deletemember(id){
         }
     }
     localStorage.setItem("users", JSON.stringify(users));
+    allmembers();
+}
+
+function search(){
+    name=document.getElementById("live_search").value;
+    if(name != null){
+        var users = [];
+        users = JSON.parse(localStorage.getItem("users") || "[]");
+        var getusers = [];
+        for (i = 0; i < users.length; i++) {
+            if(users[i].name.includes(name))
+                getusers.push(users[i])
+        }
+        if(getusers.length>0)
+            PrintMemebers(getusers);
+        else
+        document.getElementById("result").innerHTML = "<h2 style='color= #ff4a4a;'>No Member Found</h2>";
+    }else
     allmembers();
 }

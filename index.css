@@ -46,6 +46,7 @@ body, html {
   border-radius: 10px;
   padding: 2%;
   font-family: "Segoe UI";
+  resize: none;
 }
 
 .left input[type=checkbox] {
@@ -232,6 +233,7 @@ body, html {
   -webkit-box-align: column;
       -ms-flex-align: column;
           align-items: column;
+  margin-bottom: -3px;
 }
 
 .right .personInfo {
@@ -258,7 +260,7 @@ body, html {
 .right .personInfo h2 {
   margin-bottom: 0.25%;
   font-family: "Segoe UI";
-  font-size: 150%;
+  font-size: 145%;
 }
 
 .right .personInfo .mail_major_role {

@@ -48,6 +48,7 @@ body,html{
         border-radius: 10px;
         padding:2%;
         font-family: $font;
+        resize: none;
     }
 
     input[type=checkbox]{
@@ -149,7 +150,6 @@ body,html{
         margin-top: 11.2%;
         border-bottom-right-radius: 20px;
         border-top-right-radius: 20px;
-       // padding: 1%;
         padding-left: 5%;
         padding-bottom: 1%;
         font-family: $font;
@@ -234,6 +234,7 @@ body,html{
     .person{
         display: flex;
         align-items: column;
+        margin-bottom: -3px;
     }
     .personInfo{
         display: flex;
@@ -249,7 +250,7 @@ body,html{
         h2{
             margin-bottom: 0.25%;
             font-family: $font;
-            font-size: 150%;
+            font-size: 145%;
         }
         .mail_major_role{
             color: $blue;

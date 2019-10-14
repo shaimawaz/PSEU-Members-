@@ -32,7 +32,7 @@
                     
                     </datalist>
 
-                    <textarea placeholder="Biography" rows="10" id="biography"></textarea>
+                    <textarea placeholder="Biography" rows="10" id="biography" maxlength="1500" minlength="500"></textarea>
                     <label class="checkbox">
                             <input type="checkbox" checked="checked"/>
                             <span class="checkmark"></span>
@@ -84,7 +84,7 @@
 
                 <span class="split">|</span>
                 
-                <input type="text" placeholder="Search by name .." class="live_search">
+                <input type="text" placeholder="Search by name .." id="live_search" onchange="search()">
             </div>
 
             <div id="result" onload="allmembers()">
