@@ -7,6 +7,7 @@ body, html {
   margin: 0;
   height: 100%;
   font-family: "Segoe UI";
+  overflow: hidden;
 }
 
 .header {

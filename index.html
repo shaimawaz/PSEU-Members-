@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>#</title>
+	<title>PSEU Team Members</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
@@ -12,85 +12,90 @@
         <div class="header">
             <h2>PSEU Team Members</h2>
         </div>
-
+        <!-- starting of the left side which means the form to add new members -->
         <div class="left">
             <div class="form_container">
                 <form>
                     <h2 id="AddHeader">Add new member</h2>
+                    <!-- name of the member  -->
                     <input type="text" placeholder="Name" id="name">
+                    <!-- email of the member  -->
                     <input type="email" placeholder="Email" id="email">
-                    
+                    <!-- a list for the user to choose from a major  -->
                     <input list="Majors" name="Major" placeholder="Major" id="major">
-                    <datalist id="Major">
-                        <option value="CS">
-                        
-                    </datalist>
-
+                        <datalist id="Major">
+                                <option value="Computer Science">
+                                <option value="Computer Engineering">
+                                <option value="Information Technology">
+                                <option value="Information System">    
+                        </datalist>
+                    <!-- a list for the user to choose from a role  -->
                     <input list="Roles" name="Role" placeholder="Role" id="role">
-                    <datalist id="Role">
-                        <option value="Leader">
-                    
-                    </datalist>
-
+                        <datalist id="Role">
+                            <option value="Front-End Developer">
+                            <option value="Back-End Developer">
+                            <option value="Full-Stack Developer">
+                            <option value="UI/UX Designer">
+                        </datalist>
+                    <!-- biography which contains some info about the user max length is 1500 in length is 500  -->
                     <textarea placeholder="Biography" rows="10" id="biography" maxlength="1500" minlength="500"></textarea>
+                    <!-- check box for adding the users on bottom or at a specific index  -->
                     <label class="checkbox">
                             <input type="checkbox" checked="checked"/>
                             <span class="checkmark"></span>
                             Add to bottom / or at index
                     </label> 
                     <input type="text" placeholder="" id="index">
+                    <!-- save button to add the user to the storage  -->
                     <button onclick="store()" type="button" id="btn">SAVE</button>
-
-                    <!-- <select name="Country" >
-                    <option value="USA">USA</option>
-                    <option value="Russia">Russia</option>
-                    <option value="India">India</option>
-                    <option value="Britain">Britain</option>
-                    </select> -->
-
                 </form>
             </div>
         </div>
+<!-- end of left side -->
 <!-- ************************************************************************************************* -->
+<!-- start of the right side -->
         <div class ="right">
-
+            <!-- top right which contais the number of members that appears for the user in the list -->
             <div class="top_right">
-               <b></b> <span id="numofallmembers"> items</span></b>
+               <b></b> <span id="numofallmembers"> ITEMS</span></b>
             </div>
-
+            <!-- top left which cotain the sort by list and the filter by major or role and a search bar -->
             <div class="top_left">
                 <span id="sortby">SORT BY</span>
-
-                <input list="Sort" name="Sort" placeholder="A-Z" id="sort">
+                <input list="Sort" name="Sort" placeholder="A-Z" id="sort" onchange="sort()">
                     <datalist id="Sort">
                         <option value="A-Z">
                         <option value="Z-A">
-                        
+                        <option value="Newest">
+                        <option value="Oldest">
                     </datalist>
-
+                <!-- split the sides in a lame way -->
                 <span class="split">|</span>
 
-                <input list="Roles" name="Role" placeholder="Role">
-                    <datalist id="Roles">
-                        <option value="Leader">
-                        
+                <input list="FilterRoles" name="FilterRole" placeholder="Role">
+                    <datalist id="FilterRoles">
+                        <option value="Front-End Developer">
+                        <option value="Back-End Developer">
+                        <option value="Full-Stack Developer">
+                        <option value="UI/UX Designer">
                     </datalist>
 
-                <input list="Majors" name="Major" placeholder="Major">
-                    <datalist id="Majors">
-                        <option value="CS">
-                        
+                <input list="FilterMajors" name="FilterMajor" placeholder="Major" onchange="">
+                    <datalist id="FilterMajors">
+                        <option value="Computer Science">
+                        <option value="Computer Engineering">
+                        <option value="Information Technology">
+                        <option value="Information System">
                     </datalist>
-
+                <!-- split the sides in a lame way -->
                 <span class="split">|</span>
-                
+                <!-- search bar  -->
                 <input type="text" placeholder="Search by name .." id="live_search" onchange="search()">
             </div>
-
+            <!-- a div to store the content and the results of functions in it -->
             <div id="result" onload="allmembers()">
-                
+                <!-- stores here -->
             </div>
-
         </div>
 
         <div class="popup">
@@ -100,14 +105,5 @@
 </body>
 </html>
 
-
-<!-- <script type="text/javascript">
-	$(".live_search").on("change",function(){
-		var x = $(".live_search").val();
-	  
-	    $("#result").html(result);
-	
-	  }});
-	});
-</script> -->
+<!-- include the functions written in js to html file -->
 <script type="text/javascript" src="functions.js"></script>
