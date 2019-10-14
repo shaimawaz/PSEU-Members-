@@ -13,7 +13,7 @@
     for (i = 0; i < users.length; i++) {
     text += "<div class='person'>"+
                 "<div class='minusIcon' onclick='deletemember("+users[i].id+")'>-</div>"+
-                "<div class='personInfo'>"+
+                "<div class='personInfo' onclick='showpop("+users[i].id+")'>"+
                     "<h2>"+users[i].name+"</h2>"+
                     "<p class='mail_major_role'>"+users[i].email+"/"+users[i].major+"/"+users[i].role+"</p>"+
                     "<p class='biography'>"+users[i].biography.substring(0,100)+"-<br>"+users[i].biography.substring(100,200)+
@@ -70,6 +70,12 @@ function store(){
     }
     if(bio==null || bio==false){
         alert('You have to enter a biography');
+        return ;
+    }else if (bio.length < 500){
+        alert('the biography should have more than 500 characters');
+        return ;
+    }else if (bio.length>1500){
+        alert('the biography should have less that 1500 charaters')
         return ;
     }
 
@@ -248,5 +254,82 @@ function filterbyrole(){
         }
     }else
     allmembers();
+}
+
+function showpop(id){
+    //we bring the array of all members
+    var users = [];
+    users = JSON.parse(localStorage.getItem("users") || "[]");
+    var member = users.find( function(user) {
+        return user.id == id;
+      });
+    var container = document.getElementById("popcontainer");
+    container.style.visibility = "visible";
+    container.style.display = "block";
+
+    console.log(member);
+    document.getElementById("membernamepop").innerHTML=member.name;
+    document.getElementById("emailpop").innerHTML= member.email;
+    document.getElementById("majorpop").value=member.major;
+    document.getElementById("rolepop").value=member.role;
+    document.getElementById("popbio").innerHTML=member.biography;
+    document.getElementById("deletebtn").name=member.id;
     
+}
+// function t get back to maiin page
+function cancel(){
+    var container = document.getElementById("popcontainer");
+    container.style.visibility = "hidden";
+}
+//function to delete a member from the popup
+function deletepop(){
+    //bring the member id to delete
+    memberid=document.getElementById("deletebtn").name;
+
+    //send the member to deletmember function to delete
+    deletemember(memberid);
+
+    //hide the popup
+    cancel();
+}
+function save(){
+    //bring the member id to save his/her info
+    memberid=document.getElementById("deletebtn").name;
+    //bring the values from the popup
+    let name = document.getElementById("membernamepop").value;
+    let email = document.getElementById("emailpop").value;
+    let role = document.getElementById("rolepop").value;
+    let major = document.getElementById("majorpop").value;
+    let bio = document.getElementById("popbio").value;
+
+    //revalidate the data
+    if(name==null || name==false){
+        alert('You have to enter a name');
+        return ;
+    }
+    if(email==null || email==false){
+        alert('You have to enter a email');
+        return ;
+    }else
+    {
+        //check if the email is unique
+        for (i = 0; i < users.length; i++) {
+            if(users[i].email === email){
+                alert('Email already exist !! try another');
+                return ;
+            }
+        }
+    }
+    if(bio==null || bio==false){
+        alert('You have to enter a biography');
+        return ;
+    }else if (bio.length < 500){
+        alert('the biography should have more than 500 characters');
+        return ;
+    }else if (bio.length>1500){
+        alert('the biography should have less that 1500 charaters')
+        return ;
+    }
+
+
 }

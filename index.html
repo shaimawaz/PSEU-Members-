@@ -98,8 +98,36 @@
             </div>
         </div>
 
-        <div class="popup">
-            
+        <div id="popcontainer">
+            <div class="popup">
+                <div id="Xbtn" onclick="cancel()">X</div>
+                <h1 id="membernamepop" contenteditable="true"></h1>
+                <div id="infocontainer">
+                    <span id="emailpop" contenteditable="true"></span>
+                    <!-- / between email and list -->
+                    <span class="slash">  /  </span>
+
+                    <select id="majorpop">
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Computer Engineering">Computer Engineering</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Information System">Information System</option>
+                    </select>
+                    <!-- / between lists -->
+                    <span class="slash">  /  </span>
+
+                    <select id="rolepop">
+                            <option value="Front-End Developer">Front-End Developer</option>
+                            <option value="Back-End Developer">Back-End Developer</option>
+                            <option value="Full-Stack Developer">Full-Stack Developer</option>
+                            <option value="UI/UX Designer">UI/UX Designer</option>
+                    </select>
+                </div>
+                <p id="popbio" contenteditable="true"></p>
+                <button type="button" id="deletebtn" onclick="deletepop()">DELETE</button>
+                <button type="button" id="savebtn" onclick="save()">SAVE</button>
+                <button type="button" id="cancelbtn" onclick="cancel()">CANCEL</button>  
+            </div>
         </div>
     </div>
 </body>
